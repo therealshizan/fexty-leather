@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart - Fexty Leather Bags</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="layout/base :: header"></div>
+<main class="container">
+    <h2>Your Cart</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td>₹ <span th:text="${product.price}"></span></td>
+            <td th:text="${cartItems[product.id].qty}"></td>
+            <td>₹ <span th:text="${product.price * cartItems[product.id].qty}"></span></td>
+            <td><a th:href="@{'/cart/remove/' + ${product.id}}">Remove</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Total: ₹ <span th:text="${total}"></span></h3>
+</main>
+</body>
+</html>
