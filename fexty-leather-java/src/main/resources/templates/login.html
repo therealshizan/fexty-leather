@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Fexty Leather Bags</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="layout/base :: header"></div>
+<main class="container auth-form">
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post">
+        <input type="email" name="username" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</main>
+</body>
+</html>
